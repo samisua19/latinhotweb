@@ -2,7 +2,7 @@
   "name": "latinhotweb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://samisua19.github.i/latinhotweb",
+  "homepage": "http://samisua19.github.io/latinhotweb",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

@@ -1,12 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import {NavbarComponent} from './components'
+import {Footer, NavbarComponent, CardComponent} from './components'
 
 function App() {
   return (
-    <div>
+    <> 
       <NavbarComponent></NavbarComponent>
-    </div>
+      <div className="page-container">
+        <div className="content-wrap">
+          <div className='formRow'>
+            <CardComponent>
+            </CardComponent>
+          </div>
+        </div>
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }
 

@@ -1,15 +1,14 @@
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
-import {title as Title} from './titleComponent';
+import {default as Title} from './titleComponent';
+import { Container, Navbar } from 'react-bootstrap';
 
-
-function NavbarComponent() {
+export default () => {
   return (
     <>
-      <NavbarCollapse className='navbar'>
-        <Title>Latin hot web</Title>
-      </NavbarCollapse>
+      <Navbar className='navbar'>
+        <Container>
+          <Title title={'Latin hot web'}></Title>
+        </Container>
+      </Navbar>
     </>
   );
 }
-
-export default NavbarComponent;

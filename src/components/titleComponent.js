@@ -1,10 +1,7 @@
 import React from 'react'
 
-export const title = ({title: string}) => {
-
+export default ({title}) => {
   return (
-    <h1 className='red'>Latin web hot</h1>
+    <h1 className='red'>{title}</h1>
   )
 }
-
-export default title

@@ -1,3 +1,13 @@
+.red{
+  color: red;
+  margin: 0px;
+}
+
+.navbar{
+  background-color: #282c34;
+  margin: 0px;
+}
+
 .App {
   text-align: center;
 }

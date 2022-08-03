@@ -11,8 +11,13 @@ export default (props) => {
   }
   const [girl, setGirl] = useState(newGirl)
   const changeForm = (event) => {
-    const {name, value} = event.target
-    console.log(name, value);
+    let {name, value} = event.target
+    if(name == 'photos'){
+      console.log(Object.values(event.target.files));
+      Object.values(event.target.files).map(file => {
+        props.uploadPhotos(file)
+      })
+    }
     setGirl({...girl, [name]: value})
   }
   const handleFormGirl = (event) => {
@@ -31,7 +36,7 @@ export default (props) => {
       </Form.Group>
       <Form.Group controlId="formFileMultiple" className="mb-3">
         <Form.Label className="text-muted">Añadir Imagenes</Form.Label>
-        <Form.Control type="file" multiple />
+        <Form.Control name='photos' type="file" multiple onChange={changeForm}/>
       </Form.Group>
       <div className="d-grid gap-2">
         <Button variant="danger" type="submit">

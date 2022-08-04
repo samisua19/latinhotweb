@@ -4,7 +4,7 @@ import { HomeComponent, TableGirlsComponent } from './components'
 
 function App() {
   return (
-      <HomeComponent routeButton={'/createGirl'} titleButton={'Crear Chica'}>
+      <HomeComponent routeButton={'/latinhotweb/createGirl'} titleButton={'Crear Chica'}>
         <TableGirlsComponent></TableGirlsComponent>
       </HomeComponent>
   )

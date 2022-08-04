@@ -12,18 +12,23 @@ export default (props) => {
   const [girl, setGirl] = useState(newGirl)
   const changeForm = (event) => {
     let {name, value} = event.target
-    if(name == 'photos'){
-      console.log(Object.values(event.target.files));
-      Object.values(event.target.files).map(file => {
-        props.uploadPhotos(file)
-      })
-    }
+    value = handleGirlsPhotos(event.target, name, value)
     setGirl({...girl, [name]: value})
   }
+
+  const handleGirlsPhotos = (target, nameField, valueField) => {
+    return (nameField == 'photos' && 
+      Object.values(target.files) && 
+      Object.values(target.files).length && 
+      Object.values(target.files).length != 0) ? 
+      Object.values(target.files) : valueField
+  }
+
   const handleFormGirl = (event) => {
     event.preventDefault()
     props.onSubmitForm(girl)
   }
+
   return (
     <Form onSubmit={handleFormGirl}>
       <Form.Group className="mb-3" controlId="formBasicEmail">

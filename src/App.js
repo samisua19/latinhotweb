@@ -1,22 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import {Footer, NavbarComponent, CardComponent} from './components'
+import './App.css'
+import React, { Suspense, lazy } from 'react';
+import { HomeComponent } from './components'
+import { Button, Container } from 'react-bootstrap'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <> 
-      <NavbarComponent></NavbarComponent>
-      <div className="page-container">
-        <div className="content-wrap">
-          <div className='formRow'>
-            <CardComponent>
-            </CardComponent>
-          </div>
-        </div>
-      </div>
-      {/* <Footer /> */}
-    </>
-  );
+      <HomeComponent routeButton={'/createGirl'} titleButton={'Crear Chica'}/>
+  )
 }
 
-export default App;
+export default App

@@ -1,7 +1,26 @@
+.images{
+  width: 300px !important;
+  height: 300px;
+}
+
 .red{
   color: red;
   margin: 0px;
   font-style: oblique;
+}
+
+.cardHeader{
+  color: white;
+  margin: 0px;
+  font-style: oblique;
+}
+
+.cardBody{
+  padding: 10px !important;
+}
+
+.cardGirl{
+  background-color: #1b1b1b !important;
 }
 
 .cardForm{

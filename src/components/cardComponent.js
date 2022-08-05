@@ -35,7 +35,7 @@ export default () => {
         newPhotos.push(photo)
       })
       await setDoc(doc(db, "girls", oldGirl.docs[0].id), {...newGirl, photos: newPhotos, lastModified: new Date().valueOf()})
-      toast('Chica creada',{
+      toast('Chica actualizada',{
         type: 'success',
         autoClose: 2000
       }) 

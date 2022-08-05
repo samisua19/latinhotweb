@@ -1,5 +1,7 @@
 import React from 'react'
 import {default as NavbarComponent } from './navbarComponent'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default (props) => {
   return (
@@ -12,6 +14,7 @@ export default (props) => {
             </div>
           </div>
         </div>
+      <ToastContainer></ToastContainer>
     </>
   )
 }

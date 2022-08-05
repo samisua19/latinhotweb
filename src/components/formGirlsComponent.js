@@ -9,6 +9,7 @@ export default (props) => {
     direction: '',
     photos: [],
   }
+  const formGirls = document.getElementById('formGirls');
   const [girl, setGirl] = useState(newGirl)
   const changeForm = (event) => {
     let {name, value} = event.target
@@ -26,11 +27,13 @@ export default (props) => {
 
   const handleFormGirl = (event) => {
     event.preventDefault()
-    props.onSubmitForm(girl)
+    const date = new Date().valueOf()
+    props.onSubmitForm({...girl, createAt: date, lastModified: date })
+    formGirls.reset()
   }
 
   return (
-    <Form onSubmit={handleFormGirl}>
+    <Form onSubmit={handleFormGirl} id="formGirls">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-muted">Nombre de la chica</Form.Label>
         <Form.Control name='name' type="text" placeholder="Nombre de la chica" onChange={changeForm} />

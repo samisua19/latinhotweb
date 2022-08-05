@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { Row, Col, Card, Container, Button, Image } from 'react-bootstrap'
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
 import { db, storage } from '../database/firebase'
 import { getDownloadURL, ref } from 'firebase/storage'
 import direction from '../direction.png';
@@ -10,14 +10,12 @@ export default () => {
   const [girls, setGirls] = useState([])
 
   const getGirls = async () => {
-    getDocs(collection(db, "girls")).then(async (querySnapshot) => {
+    onSnapshot(collection(db, "girls"), async (querySnapshot) => {
       const newArrGirls = await addParseObjet(querySnapshot)
-      setTimeout(()=> {
-        console.log(newArrGirls)
+      setTimeout(() => {
         setGirls(newArrGirls)
       }, 1000)
     })
-    
   }
 
   const addParseObjet = async (querySnapshot) => {

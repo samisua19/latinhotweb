@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/latinhotweb/static/css/main.4b1b9882.css",
-    "main.js": "/latinhotweb/static/js/main.f3167469.js",
+    "main.css": "/latinhotweb/static/css/main.75e0747a.css",
+    "main.js": "/latinhotweb/static/js/main.24983bc8.js",
     "static/js/787.4658d16d.chunk.js": "/latinhotweb/static/js/787.4658d16d.chunk.js",
     "index.html": "/latinhotweb/index.html",
-    "main.4b1b9882.css.map": "/latinhotweb/static/css/main.4b1b9882.css.map",
-    "main.f3167469.js.map": "/latinhotweb/static/js/main.f3167469.js.map",
+    "main.75e0747a.css.map": "/latinhotweb/static/css/main.75e0747a.css.map",
+    "main.24983bc8.js.map": "/latinhotweb/static/js/main.24983bc8.js.map",
     "787.4658d16d.chunk.js.map": "/latinhotweb/static/js/787.4658d16d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b1b9882.css",
-    "static/js/main.f3167469.js"
+    "static/css/main.75e0747a.css",
+    "static/js/main.24983bc8.js"
   ]
 }

@@ -1,27 +1,74 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Row, Col, Card, Container, Button, Image } from 'react-bootstrap'
+import { collection, doc, getDocs } from "firebase/firestore";
+import { db, storage } from '../database/firebase'
+import { getDownloadURL, ref } from 'firebase/storage'
+import direction from '../direction.png';
 
 export default () => {
+  
+  const [girls, setGirls] = useState([])
+
+  const getGirls = async () => {
+    getDocs(collection(db, "girls")).then(async (querySnapshot) => {
+      const newArrGirls = await addParseObjet(querySnapshot)
+      setTimeout(()=> {
+        console.log(newArrGirls)
+        setGirls(newArrGirls)
+      }, 1000)
+    })
     
+  }
+
+  const addParseObjet = async (querySnapshot) => {
+    const arrGirls = []
+    querySnapshot.forEach(async (doc) => {
+      const sortPhotos = doc.data().photos.sort((a$, b$) => b$.lastModified - a$.lastModified)
+      const pathPhoto = doc.data().name + '/' + sortPhotos[0].path
+      const urlPrincipalPhoto = await getPrincipalPhoto(pathPhoto)
+      arrGirls.push({...doc.data(), id: doc.id, principalPhoto: urlPrincipalPhoto})
+    })
+    return arrGirls
+  }
+
+  const getPrincipalPhoto = async (url) => {
+    return await getDownloadURL(ref(storage, url))
+  }
+
+
+
+  useEffect(()=> {
+    getGirls()
+  },[])
+
   return (
     <Container>
     <Row xs={1} md={4} className="g-2">
-      {Array.from({ length: 20 }).map((_, idx) => (
-        <Col>
+      {Object.values(girls).map((_, idx) => {
+        return (<Col key={_.id}>
           <Card className="cardGirl">
             <Card.Header>
-              <Card.Title className="cardHeader">Mia Marin</Card.Title>
+              <Card.Title className="cardHeader">{_.name}</Card.Title>
+              <div className='direction'>
+                <div className='iconDirection'>
+                  <span><Image src={direction}></Image></span>
+                </div>
+                <div>
+                  <h5 className='textDirection'>{_.direction}</h5>
+                </div>
+              </div>
             </Card.Header>
             <Card.Img
+              className='images'
               variant="top"
-              src="https://cdmx.com/wp-content/uploads/2018/06/mia-marin-65345.jpg"
+              src={_.principalPhoto}
             />
             <div className="d-grid gap-2">
               <Button variant="danger" type="button">Ver</Button>
             </div>
           </Card>
-        </Col>
-      ))}
+        </Col>)}
+      )}
     </Row>
   </Container>
   )

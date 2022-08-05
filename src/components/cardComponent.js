@@ -3,9 +3,8 @@ import { Card } from 'react-bootstrap'
 import { default as Title } from './titleComponent'
 import FormGirlsComponent from './formGirlsComponent'
 import { db, storage } from '../database/firebase'
-import { ref } from 'firebase/storage'
 import { collection, addDoc } from 'firebase/firestore'
-import { uploadBytes, getDownloadURL } from 'firebase/storage'
+import { uploadBytes, ref } from 'firebase/storage'
 export default () => {
   const createGirl = async (girl) => {
     try {
@@ -32,14 +31,6 @@ export default () => {
     const storageRef = ref(storage, nameGirl + '/' + date + '.' + ext)
     return await uploadBytes(storageRef, photo)
   }
-
-  /* const radom = () => {
-    getDownloadURL(ref(storage, 'talia borja manrique/1659574754519.jpg'))
-      .then((url) => {
-        console.log(url)
-      })
-      .catch((error) => {})
-  } */
 
   return (
     <>

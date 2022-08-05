@@ -1,6 +1,19 @@
 .images{
-  width: 300px !important;
-  height: 300px;
+  height: 400px !important;
+}
+
+.iconDirection{
+  margin-right: 5px;
+}
+
+.direction{
+  display: flex;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+.textDirection{
+  color: darkorange;
 }
 
 .red{

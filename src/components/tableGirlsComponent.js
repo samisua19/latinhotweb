@@ -35,8 +35,6 @@ export default () => {
     return await getDownloadURL(ref(storage, url))
   }
 
-
-
   useEffect(()=> {
     getGirls()
   },[])
@@ -48,7 +46,15 @@ export default () => {
         return (<Col key={_.id}>
           <Card className="cardGirl">
             <Card.Header>
-              <Card.Title className="cardHeader">{_.name}</Card.Title>
+              <div className='titleDirection'>
+                <div className='iconDirection'>
+                  <Card.Title className="cardHeader">{_.name}</Card.Title>
+                </div>
+                <div className='divPhotos'>
+                  <h5 className='numPhotos'>{_.photos.length}</h5>
+                </div>
+              </div>
+              
               <div className='direction'>
                 <div className='iconDirection'>
                   <span><Image src={direction}></Image></span>

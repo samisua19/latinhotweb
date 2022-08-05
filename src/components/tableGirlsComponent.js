@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import { Row, Col, Card, Container, Button, Image } from 'react-bootstrap'
-import { collection, doc, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db, storage } from '../database/firebase'
 import { getDownloadURL, ref } from 'firebase/storage'
 import direction from '../direction.png';
+import { Link } from 'react-router-dom';
 
 export default () => {
   
@@ -22,9 +23,11 @@ export default () => {
     const arrGirls = []
     querySnapshot.forEach(async (doc) => {
       const sortPhotos = doc.data().photos.sort((a$, b$) => b$.lastModified - a$.lastModified)
-      const pathPhoto = doc.data().name + '/' + sortPhotos[0].path
-      const urlPrincipalPhoto = await getPrincipalPhoto(pathPhoto)
-      arrGirls.push({...doc.data(), id: doc.id, principalPhoto: urlPrincipalPhoto})
+      if(sortPhotos && sortPhotos[0]){
+        const pathPhoto = doc.data().name + '/' + sortPhotos[0].path
+        const urlPrincipalPhoto = await getPrincipalPhoto(pathPhoto)
+        arrGirls.push({...doc.data(), id: doc.id, principalPhoto: urlPrincipalPhoto})
+      }
     })
     return arrGirls
   }
@@ -67,9 +70,10 @@ export default () => {
               variant="top"
               src={_.principalPhoto}
             />
-            <div className="d-grid gap-2">
-              <Button variant="danger" type="button">Ver</Button>
-            </div>
+            <Link to={'/latinhotweb/' + _.id} className='buttonShow'>
+              <div className="d-grid gap-2"><Button variant="danger"  type="button">Ver</Button>
+              </div>
+            </Link>
           </Card>
         </Col>)}
       )}

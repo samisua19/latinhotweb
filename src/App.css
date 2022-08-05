@@ -20,6 +20,9 @@
   color: snow;
 }
 
+.buttonShow{
+  text-decoration: none
+}
 .titleDirection{
   display: flex;
   margin-bottom: 0px;

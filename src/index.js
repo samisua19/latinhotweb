@@ -11,7 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { CardComponent, HomeComponent } from './components';
+import { CardComponent, HomeComponent, ShowGirlPhotos } from './components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +19,7 @@ root.render(
     <Routes>
       <Route path="/latinhotweb" element={<App />}></Route>
       <Route path="/latinhotweb/createGirl" element={<HomeComponent routeButton={'/latinhotweb'} titleButton={'Inicio'}><CardComponent/></HomeComponent>}></Route>
+      <Route path="/latinhotweb/:id" element={<HomeComponent routeButton={'/latinhotweb'} titleButton={'Inicio'}><ShowGirlPhotos/></HomeComponent>}></Route>
     </Routes>
   </BrowserRouter>
 );

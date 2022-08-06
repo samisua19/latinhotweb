@@ -70,7 +70,7 @@ export default () => {
               variant="top"
               src={_.principalPhoto}
             />
-            <Link to={'/latinhotweb/' + _.id} className='buttonShow'>
+            <Link to={'/' + _.id} className='buttonShow'>
               <div className="d-grid gap-2"><Button variant="danger"  type="button">Ver</Button>
               </div>
             </Link>

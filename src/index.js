@@ -19,7 +19,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/createGirl" element={<HomeComponent routeButton={''} titleButton={'Inicio'}><CardComponent/></HomeComponent>}></Route>
-      <Route path="/:id" element={<HomeComponent routeButton={'/latinhotweb'} titleButton={'Inicio'}><ShowGirlPhotos/></HomeComponent>}></Route>
+      <Route path="/:id" element={<HomeComponent routeButton={'/'} titleButton={'Inicio'}><ShowGirlPhotos/></HomeComponent>}></Route>
     </Routes>
   </BrowserRouter>
 );

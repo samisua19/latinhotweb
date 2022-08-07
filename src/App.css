@@ -3,11 +3,15 @@
 }
 
 .iconWhatsapp{
-  margin-top: 10px;
   width: 20px;
+  margin-right: 5px;
 }
 
 .numbersWhatsapp{
+  display: flex;
+}
+
+.divWhatsapp{
   display: flex;
 }
 

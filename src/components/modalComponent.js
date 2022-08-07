@@ -16,7 +16,7 @@ export default () => {
     event.preventDefault()
     localStorage.setItem('pass', pass)
     const url = window.location.href
-    window.location.replace(url + "createGirl")
+    window.location.assign(url + "createGirl")
   }
 
   return (

@@ -18,7 +18,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}></Route>
-      <Route path="/createGirl" element={<HomeComponent hideModal={true} routeButton={'/'} titleButton={'Inicio'}><CardComponent/></HomeComponent>}></Route>
+      <Route path="/createGirl" element={<HomeComponent hideModal={false} routeButton={'/'} titleButton={'Inicio'}><CardComponent/></HomeComponent>}></Route>
       <Route path="/:id" element={<HomeComponent hideModal={false} routeButton={'/'} titleButton={'Inicio'}><ShowGirlPhotos/></HomeComponent>}></Route>
     </Routes>
   </BrowserRouter>

@@ -16,7 +16,7 @@ export default (props) => {
       <Navbar className="navbar">
         <Container>
           <Title title={"Latin hot web"}></Title>
-          <div className="numbersWhatsapp">
+          {/* <div className="numbersWhatsapp">
             <Dropdown className="d-inline mx-2" autoClose="inside">
               <div className="divWhatsapp">
                 <Dropdown.Toggle id="dropdown-autoclose-inside" variant="danger">
@@ -29,7 +29,7 @@ export default (props) => {
                 <Dropdown.Item href="https://wa.link/4drpk0">+1 (209) 450-4558</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </div>
+          </div> */}
           <div hidden={!props.hideModal}>
             <ModalComponent />
           </div>

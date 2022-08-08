@@ -16,20 +16,6 @@ export default (props) => {
       <Navbar className="navbar">
         <Container>
           <Title title={"Latin hot web"}></Title>
-          {/* <div className="numbersWhatsapp">
-            <Dropdown className="d-inline mx-2" autoClose="inside">
-              <div className="divWhatsapp">
-                <Dropdown.Toggle id="dropdown-autoclose-inside" variant="danger">
-                      <span><Image src={whatsapp} className='iconWhatsapp'></Image>whatsapp</span>
-                </Dropdown.Toggle>
-              </div>
-              <Dropdown.Menu>
-                <Dropdown.Item href="https://wa.link/gybwz3">+1 (408) 639-1277</Dropdown.Item>
-                <Dropdown.Item href="https://wa.link/84tgqw">+1 (669) 499-0487</Dropdown.Item>
-                <Dropdown.Item href="https://wa.link/4drpk0">+1 (209) 450-4558</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div> */}
           <div hidden={!props.hideModal}>
             <ModalComponent />
           </div>

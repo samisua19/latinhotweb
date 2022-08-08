@@ -45,7 +45,7 @@ export default (props) => {
   const handleFormGirl = (event) => {
     event.preventDefault()
     const date = new Date().valueOf()
-    //props.onSubmitForm({...girl, createAt: date, lastModified: date })
+    props.onSubmitForm({...girl, createAt: date, lastModified: date })
     formGirls.reset()
   }
 

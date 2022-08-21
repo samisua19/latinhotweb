@@ -93,7 +93,7 @@ const CardComponent = () => {
     <Container>
       <Row lg={12}>
       <Col lg={4} md={12} xs={12} className="divCardForm">
-        <Card border="danger" style={{ width: '17rem' }} className="cardForm">
+        <Card border="danger" style={{ width: '20rem', height: 'fit-content' }} className="cardForm">
           <Card.Header>
             <Title title={'Añadir Chica'}></Title>
           </Card.Header>

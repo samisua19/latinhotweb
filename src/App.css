@@ -101,6 +101,12 @@
   background-color: #1b1b1b !important;
 }
 
+.divCardForm{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+}
+
 .cardForm{
   background-color: #282c34 !important;
 }

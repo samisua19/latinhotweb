@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import { default as Title } from './titleComponent'
 import FormGirlsComponent from './formGirlsComponent'
 import { db, storage } from '../database/firebase'
@@ -90,9 +90,10 @@ const CardComponent = () => {
   };
 
   return (
-    <div className='divCrudGirl'>
-      <div className='divMargin'>
-        <Card border="danger" style={{ width: '20rem' }} className="cardForm">
+    <Container>
+      <Row lg={12}>
+      <Col lg={4} md={12} xs={12} className="divCardForm">
+        <Card border="danger" style={{ width: '17rem' }} className="cardForm">
           <Card.Header>
             <Title title={'Añadir Chica'}></Title>
           </Card.Header>
@@ -103,15 +104,18 @@ const CardComponent = () => {
             />
           </Card.Body>
         </Card>
-      </div>
-      <div>
-        <TableGirlComponent
-              girls={girls}
-              getGirls={getGirls}
-              updateGirlInBD={updateGirlInBD}>
-              </TableGirlComponent>
-      </div>
-    </div>
+      </Col>
+      <Col lg={8} md={12} xs={12}>
+        <Container>
+          <TableGirlComponent
+                girls={girls}
+                getGirls={getGirls}
+                updateGirlInBD={updateGirlInBD}>
+          </TableGirlComponent>
+        </Container>
+      </Col>
+    </Row>
+    </Container>
   )
 }
 

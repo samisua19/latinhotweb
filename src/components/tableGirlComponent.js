@@ -15,7 +15,7 @@ function TableGirlComponent(props) {
   }, [props]);
 
   return (
-    <Table striped bordered hover variant="dark">
+    <Table striped responsive bordered hover variant="dark">
       <thead>
         <tr>
           <th>Nombre</th>

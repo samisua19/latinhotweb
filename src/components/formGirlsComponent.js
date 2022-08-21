@@ -26,7 +26,7 @@ const FormGirlsComponent = (props) => {
         returnHome()
       localStorage.clear()
     }
-    (!localStorage.getItem('pass')) ? returnHome() : authPass(localStorage.getItem('pass'))
+    //(!localStorage.getItem('pass')) ? returnHome() : authPass(localStorage.getItem('pass'))
   }, [])
 
   const returnHome = () => {
@@ -45,7 +45,7 @@ const FormGirlsComponent = (props) => {
   const handleFormGirl = (event) => {
     event.preventDefault()
     const date = new Date().valueOf()
-    props.onSubmitForm({ ...girl, createAt: date, lastModified: date, active: true })
+    props.onSubmitForm({ ...girl, createAt: date, lastModified: date, active: false })
     formGirls.reset()
   }
 
@@ -58,6 +58,10 @@ const FormGirlsComponent = (props) => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-muted">Dirección</Form.Label>
         <Form.Control required={true} name='direction' type="text" placeholder="Dirección" onChange={changeForm} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label className="text-muted">Comentarios</Form.Label>
+        <Form.Control required={false} as="textarea" name='comments' type="text" placeholder="Comentarios" onChange={changeForm} />
       </Form.Group>
       <Form.Group controlId="formFileMultiple" className="mb-3">
         <Form.Label className="text-muted">Añadir Imagenes</Form.Label>

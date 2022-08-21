@@ -2,6 +2,11 @@
   height: 400px !important;
 }
 
+.imagesPerfil{
+  width: 100px !important;
+  height: 100px !important;
+}
+
 .iconWhatsapp{
   width: 20px;
   margin-right: 5px;
@@ -66,6 +71,17 @@
 
 .cardBody{
   padding: 10px !important;
+}
+
+.cardPerfil{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border: 0px;
+  background-color: #282c34 !important;
+}
+
+.perfil{
+  display: flex;
 }
 
 .cardGirl{

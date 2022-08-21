@@ -31,7 +31,7 @@ const TableGirlsComponent = () => {
       onSnapshot(collection(db, "girls"), async (querySnapshot) => {
         const newArrGirls = await addParseObjet(querySnapshot)
         setTimeout(() => {
-          setGirls(newArrGirls.filter(rsp => rsp.active))
+          setGirls(newArrGirls.filter(rsp => !rsp.active))
         }, 1000)
       })
     }
@@ -41,7 +41,7 @@ const TableGirlsComponent = () => {
   return (
     <Container>
     <Row xs={1} md={4} className="g-2">
-      {Object.values(girls).map((_, idx) => {
+      {Object.values(girls).sort(($a, $b) => $b.lastModified - $a.lastModified).map((_, idx) => {
         return (<Col key={_.id}>
           <Card className="cardGirl">
             <Card.Header>

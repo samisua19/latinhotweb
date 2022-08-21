@@ -3,9 +3,10 @@ import { Card, ToastContainer } from 'react-bootstrap'
 import { default as Title } from './titleComponent'
 import FormGirlsComponent from './formGirlsComponent'
 import { db, storage } from '../database/firebase'
-import { collection, addDoc, query, where, getDocs, setDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, query, where, getDocs, setDoc, doc, onSnapshot } from 'firebase/firestore'
 import { uploadBytes, ref } from 'firebase/storage'
 import { toast } from 'react-toastify'
+import TableGirlComponent from './tableGirlComponent'
 export default () => {
 
   const createGirl = async (girl) => {
@@ -34,12 +35,16 @@ export default () => {
       rsp.data().photos.forEach((photo) => {
         newPhotos.push(photo)
       })
-      await setDoc(doc(db, "girls", oldGirl.docs[0].id), {...newGirl, photos: newPhotos, lastModified: new Date().valueOf()})
-      toast('Chica actualizada',{
-        type: 'success',
-        autoClose: 2000
-      }) 
+      await updateGirlInBD(oldGirl.docs[0].id, {...newGirl, photos: newPhotos, lastModified: new Date().valueOf()})
     })
+  }
+
+  const updateGirlInBD = async (id, girl) => {
+    await setDoc(doc(db, "girls", id), {...girl})
+    toast('Chica actualizada',{
+      type: 'success',
+      autoClose: 2000
+    }) 
   }
 
   const handleGirlsPhotos = async (photosGirls, nameGirl) => {
@@ -58,19 +63,54 @@ export default () => {
     return await uploadBytes(storageRef, photo)
   }
 
+  const [girls, setGirls] = useState([]);
+
+  const addParseObjet = async (querySnapshot) => {
+    const arrGirls = [];
+    querySnapshot.forEach(async (doc) => {
+      const sortPhotos = doc.data();
+      arrGirls.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+    return arrGirls;
+  };
+
+  const getGirls = async () => {
+    onSnapshot(collection(db, "girls"), async (querySnapshot) => {
+      const newArrGirls = await addParseObjet(querySnapshot);
+      setTimeout(() => {
+        setGirls(
+          newArrGirls
+            .sort((a$, b$) => b$.lastModified - a$.lastModified)
+        );
+      }, 1000);
+    });
+  };
+
   return (
-    <>
-      <Card border="danger" style={{ width: '30rem' }} className="cardForm">
-        <Card.Header>
-          <Title title={'Añadir Chica'}></Title>
-        </Card.Header>
-        <Card.Body>
-          <FormGirlsComponent
-            onSubmitForm={createGirl}
-            uploadPhotos={uploadPhotos}
-          />
-        </Card.Body>
-      </Card>
-    </>
+    <div className='divCrudGirl'>
+      <div className='divMargin'>
+        <Card border="danger" style={{ width: '20rem' }} className="cardForm">
+          <Card.Header>
+            <Title title={'Añadir Chica'}></Title>
+          </Card.Header>
+          <Card.Body>
+            <FormGirlsComponent
+              onSubmitForm={createGirl}
+              uploadPhotos={uploadPhotos}
+            />
+          </Card.Body>
+        </Card>
+      </div>
+      <div>
+        <TableGirlComponent
+              girls={girls}
+              getGirls={getGirls}
+              updateGirlInBD={updateGirlInBD}>
+              </TableGirlComponent>
+      </div>
+    </div>
   )
 }

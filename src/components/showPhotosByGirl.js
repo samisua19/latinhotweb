@@ -57,7 +57,7 @@ export default () => {
           </div>
           <div className="direction">
             <div>
-              <h6 className="cardHeader">{girl.comments ? girl.comments : 'Sin comentarios'}</h6>
+              <h6 className="comments">{girl.comments ? girl.comments : 'Sin comentarios'}</h6>
             </div>
           </div>
         </div>

@@ -69,6 +69,19 @@
   font-style: oblique;
 }
 
+.comments{
+  color: white;
+  margin: 0px;
+}
+
+.divCrudGirl{
+  display: flex;
+}
+
+.divMargin{
+  margin-right: 10px;
+}
+
 .cardBody{
   padding: 10px !important;
 }

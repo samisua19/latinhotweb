@@ -62,6 +62,11 @@ const TableGirlsComponent = () => {
                   <h5 className='textDirection'>{_.direction}</h5>
                 </div>
               </div>
+              <div className="direction">
+                <div>
+                  <h6 className="comments">{_.comments ? _.comments : 'Sin comentarios'}</h6>
+                </div>
+              </div>
             </Card.Header>
             <Card.Img
               className='images'

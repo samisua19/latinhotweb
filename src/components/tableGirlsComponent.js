@@ -6,37 +6,35 @@ import { getDownloadURL, ref } from 'firebase/storage'
 import direction from '../direction.png';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const TableGirlsComponent = () => {
   
   const [girls, setGirls] = useState([])
-
-  const getGirls = async () => {
-    onSnapshot(collection(db, "girls"), async (querySnapshot) => {
-      const newArrGirls = await addParseObjet(querySnapshot)
-      setTimeout(() => {
-        setGirls(newArrGirls)
-      }, 1000)
-    })
-  }
-
-  const addParseObjet = async (querySnapshot) => {
-    const arrGirls = []
-    querySnapshot.forEach(async (doc) => {
-      const sortPhotos = doc.data().photos.sort((a$, b$) => b$.lastModified - a$.lastModified)
-      if(sortPhotos && sortPhotos[0]){
-        const pathPhoto = doc.data().name + '/' + sortPhotos[0].path
-        const urlPrincipalPhoto = await getPrincipalPhoto(pathPhoto)
-        arrGirls.push({...doc.data(), id: doc.id, principalPhoto: urlPrincipalPhoto})
-      }
-    })
-    return arrGirls
-  }
 
   const getPrincipalPhoto = async (url) => {
     return await getDownloadURL(ref(storage, url))
   }
 
   useEffect(()=> {
+    const addParseObjet = async (querySnapshot) => {
+      const arrGirls = []
+      querySnapshot.forEach(async (doc) => {
+        const sortPhotos = doc.data().photos.sort((a$, b$) => b$.lastModified - a$.lastModified)
+        if(sortPhotos && sortPhotos[0]){
+          const pathPhoto = doc.data().name + '/' + sortPhotos[0].path
+          const urlPrincipalPhoto = await getPrincipalPhoto(pathPhoto)
+          arrGirls.push({...doc.data(), id: doc.id, principalPhoto: urlPrincipalPhoto})
+        }
+      })
+      return arrGirls
+    }
+    const getGirls = async () => {
+      onSnapshot(collection(db, "girls"), async (querySnapshot) => {
+        const newArrGirls = await addParseObjet(querySnapshot)
+        setTimeout(() => {
+          setGirls(newArrGirls.filter(rsp => rsp.active))
+        }, 1000)
+      })
+    }
     getGirls()
   },[])
 
@@ -81,3 +79,5 @@ export default () => {
   </Container>
   )
 }
+
+export default TableGirlsComponent

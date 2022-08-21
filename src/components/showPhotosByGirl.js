@@ -6,7 +6,7 @@ import { db, storage } from "../database/firebase";
 import { getDownloadURL, ref } from "firebase/storage";
 import direction from '../direction.png';
 
-export default () => {
+const ShowPhotosByGirl = () => {
   let { id } = useParams();
 
   const [girl, setGirl] = useState({});
@@ -30,7 +30,7 @@ export default () => {
     };
 
     getGirl();
-  }, []);
+  }, [id]);
 
   return (
     <Container>
@@ -74,3 +74,5 @@ export default () => {
     </Container>
   );
 };
+
+export default ShowPhotosByGirl

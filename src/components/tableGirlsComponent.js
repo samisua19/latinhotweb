@@ -31,7 +31,7 @@ const TableGirlsComponent = () => {
       onSnapshot(collection(db, "girls"), async (querySnapshot) => {
         const newArrGirls = await addParseObjet(querySnapshot)
         setTimeout(() => {
-          setGirls(newArrGirls.filter(rsp => !rsp.active))
+          setGirls(newArrGirls.filter(rsp => rsp.active))
         }, 1000)
       })
     }

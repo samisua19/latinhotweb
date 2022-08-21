@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Card, ToastContainer } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { default as Title } from './titleComponent'
 import FormGirlsComponent from './formGirlsComponent'
 import { db, storage } from '../database/firebase'
@@ -7,12 +7,13 @@ import { collection, addDoc, query, where, getDocs, setDoc, doc, onSnapshot } fr
 import { uploadBytes, ref } from 'firebase/storage'
 import { toast } from 'react-toastify'
 import TableGirlComponent from './tableGirlComponent'
-export default () => {
+
+const CardComponent = () => {
 
   const createGirl = async (girl) => {
     try {
       const q = query(collection(db, "girls"), where("name", "==", girl.name), where("direction", "==", girl.direction))
-      const querySnapshot = await getDocs(q).then(async (rsp) => {
+      await getDocs(q).then(async (rsp) => {
         (rsp && rsp.empty) ? await saveGirl(girl) : updateGirl(rsp,girl)
       })      
     } catch (e) {
@@ -68,7 +69,6 @@ export default () => {
   const addParseObjet = async (querySnapshot) => {
     const arrGirls = [];
     querySnapshot.forEach(async (doc) => {
-      const sortPhotos = doc.data();
       arrGirls.push({
         ...doc.data(),
         id: doc.id,
@@ -114,3 +114,5 @@ export default () => {
     </div>
   )
 }
+
+export default CardComponent

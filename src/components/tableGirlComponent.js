@@ -1,9 +1,6 @@
 import Table from "react-bootstrap/Table";
-import React, { useEffect, useState } from "react";
-import { Row, Col, Card, Container, Button, Image } from "react-bootstrap";
-import { collection, onSnapshot } from "firebase/firestore";
-import { db, storage } from "../database/firebase";
-import { getDownloadURL, ref } from "firebase/storage";
+import React, { useEffect } from "react";
+import { Button } from "react-bootstrap";
 
 function TableGirlComponent(props) {
 
@@ -15,7 +12,7 @@ function TableGirlComponent(props) {
 
   useEffect(() => {
     props.getGirls();
-  }, []);
+  }, [props]);
 
   return (
     <Table striped bordered hover variant="dark">

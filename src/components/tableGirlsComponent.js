@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Card, Container, Button, Image } from "react-bootstrap";
+import { Row, Col, Card, Container, Image } from "react-bootstrap";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db, storage } from "../database/firebase";
 import { getDownloadURL, ref } from "firebase/storage";
 import direction from "../direction.png";
-import { Link } from "react-router-dom";
 import ImageComponent from "./imageComponent";
 
 const TableGirlsComponent = () => {

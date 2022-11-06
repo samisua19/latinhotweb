@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Row, Col, Card, Container, Image } from "react-bootstrap";
+import { Card, Container, Image } from "react-bootstrap";
 import { getDoc, doc } from "firebase/firestore";
 import { db, storage } from "../database/firebase";
 import { getDownloadURL, ref } from "firebase/storage";
@@ -76,7 +76,7 @@ const ShowPhotosByGirl = () => {
         </div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', scrollX: 'auto'}}>
-        <Image src={showPhoto ? showPhoto : ""} rounded={true} style={{width: '100%'}}></Image>
+        <Image className="imageshow" src={showPhoto ? showPhoto : ""} rounded={true} style={{width: '100%'}}></Image>
       </div>
     </Container>
   );

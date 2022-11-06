@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ImageComponent = (props) => {

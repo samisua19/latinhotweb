@@ -3,6 +3,7 @@ import { Button, Container, Navbar, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ModalComponent from "./modalComponent";
 import whatsapp from "../whatsapp.png";
+import sensualLogo from "../sensualLogo.png"
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
@@ -15,6 +16,7 @@ export default (props) => {
     <>
       <Navbar className="navbar">
         <Container>
+          <Image src={process.env.PUBLIC_URL + sensualLogo} height={50} roundedCircle={true}></Image>
           <Title title={"Latin hot web"}></Title>
           <div>
               <Image src={process.env.PUBLIC_URL + whatsapp} height={20} style={{marginRight:'5px'}}></Image>

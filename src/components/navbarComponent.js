@@ -16,7 +16,7 @@ export default (props) => {
           <Image src={process.env.PUBLIC_URL + Latinwebhot} height={250} roundedCircle={true}></Image>
           <div>
               <Image src={process.env.PUBLIC_URL + whatsapp} height={20} style={{marginRight:'5px'}}></Image>
-              <a href="#" onClick={() => redirectLinkWha('https://walink.co/5a9621')} style={{textDecoration: 'none', color: 'white'}}>(408) 639-1277</a>
+{/*               <a href="#" onClick={() => redirectLinkWha('https://walink.co/5a9621')} style={{textDecoration: 'none', color: 'white'}}>(408) 639-1277</a> */}
           </div>
           <div hidden={!props.hideModal}>
             <ModalComponent />

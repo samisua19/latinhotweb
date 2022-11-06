@@ -21,7 +21,7 @@
 }
 
 .divPhotos{
-  background-color: darkgray;
+  background-color: #8496a4;
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -91,7 +91,7 @@
   margin-right: 20px;
   margin-bottom: 10px;
   border: 0px;
-  background-color: #282c34 !important;
+  background-color: #9de3e6 !important;
 }
 
 .perfil{
@@ -99,12 +99,12 @@
 }
 
 .cardGirl{
-  background-color: #1b1b1b !important;
+  background-color: rgb(132, 150, 164, 0.8) !important;
   margin-bottom: 20px;
 }
 
 .cardGirl2{
-  background-color: #1b1b1b !important;
+  background-color: rgb(132, 150, 164, 0.8) !important;
   height: 100px !important;
   width: 100px;
   margin: 7px;
@@ -125,12 +125,12 @@
 }
 
 .cardForm{
-  background-color: #282c34 !important;
+  background-color: #9de3e6 !important;
 }
 
 .main-footer {
   color: white;
-  background-color: #282c34;
+  background-color: #9de3e6;
   padding-top: 3em;
   position: relative;
   bottom: 0;
@@ -151,14 +151,17 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #282c34;
+  background-color: #9de3e6;
+  background-image: url('./backgroundImage.png');
+  background-repeat: no-repeat;
+  background-position: center;
   flex: 1;
   padding-top: 20px;
 }
 
 .navbar{
   background-image: url('./navbarlogo.png');
-  background-color: #282c34;
+  background-color: #9de3e6;
   margin: 0px;
   flex: 1;
   height: 120px;
@@ -181,7 +184,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #9de3e6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -203,3 +206,22 @@
     transform: rotate(360deg);
   }
 }
+@media all and (min-width: 992px) and (max-width: 1200px)   {
+  .imageCardMod{
+    height: 290px !important;
+    width: 290px !important;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 992px)   {
+  .imageCardMod{
+    height: 214px !important;
+    width: 214px !important;
+  }
+}
+
+
+
+
+
+

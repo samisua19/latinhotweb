@@ -83,7 +83,7 @@ const TableGirlsComponent = () => {
                         </div>
                       </div>
                     </Card.Header>
-                    <Card.Body style={{padding:'0px'}}>
+                    <Card.Body style={{padding:{}}}>
                       <div>
                         <ImageComponent photo={_.principalPhoto} id={_.id} />
                       </div>

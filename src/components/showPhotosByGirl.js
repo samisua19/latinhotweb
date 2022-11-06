@@ -11,6 +11,7 @@ const ShowPhotosByGirl = () => {
 
   const [girl, setGirl] = useState({});
   const [photosUrl, setPhotosUrl] = useState([]);
+  const [showPhoto, setShowPhoto] = useState()
 
   useEffect(() => {
     const getGirl = async () => {
@@ -26,7 +27,8 @@ const ShowPhotosByGirl = () => {
         const url = await getDownloadURL(ref(storage, pathPhoto));
         arrUrlsPhotos.push({url, createdAt: photo.createdAt});
       }
-      setPhotosUrl(arrUrlsPhotos);
+      setPhotosUrl(arrUrlsPhotos)
+      if( arrUrlsPhotos && arrUrlsPhotos[0] && arrUrlsPhotos[0].url ) setShowPhoto(photosUrl[0].url)
     };
 
     getGirl();
@@ -62,15 +64,20 @@ const ShowPhotosByGirl = () => {
           </div>
         </div>
       </div>
-      <Row xs={1} md={3} className="g-2">
-        {Object.values(photosUrl).sort(($a, $b) => $b.createdAt - $a.createdAt).map((_, idx) => (
-          <Col key={idx}>
-            <Card className="cardGirl">
-              <Card.Img className="images" variant="top" src={_.url} />
-            </Card>
-          </Col>
-        ))}
-      </Row>
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', overflowX: 'scroll', marginBottom: '10px'}}>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+          {Object.values(photosUrl).sort(($a, $b) => $b.createdAt - $a.createdAt).map((_, idx) => (
+            <div key={idx}>
+              <Card className="cardGirl2">
+                <Image variant="top" src={_.url} height={100} width={100} rounded={true} onClick={()=> setShowPhoto(_.url)}/>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+        <Image src={showPhoto ? showPhoto : ""} rounded={true} height={600}></Image>
+      </div>
     </Container>
   );
 };

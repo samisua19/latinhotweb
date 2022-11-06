@@ -104,6 +104,16 @@
   width: 317px;
 }
 
+.cardGirl2{
+  background-color: #1b1b1b !important;
+  height: 100px !important;
+  width: 100px;
+}
+
+.cardGirl2:hover{
+  filter: brightness(50%);
+}
+
 .divCardForm{
   display: flex !important;
   flex-direction: row !important;

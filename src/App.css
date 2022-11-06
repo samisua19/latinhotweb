@@ -99,6 +99,9 @@
 
 .cardGirl{
   background-color: #1b1b1b !important;
+  margin-bottom: 20px;
+  height: 400px !important;
+  width: 317px;
 }
 
 .divCardForm{

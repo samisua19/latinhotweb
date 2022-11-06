@@ -5,6 +5,7 @@ import { db, storage } from '../database/firebase'
 import { getDownloadURL, ref } from 'firebase/storage'
 import direction from '../direction.png';
 import { Link } from 'react-router-dom';
+import ImageComponent from './imageComponent'
 
 const TableGirlsComponent = () => {
   
@@ -40,7 +41,7 @@ const TableGirlsComponent = () => {
 
   return (
     <Container>
-    <Row xs={1} md={4} className="g-2">
+    <Row xs={1} md={3}>
       {Object.values(girls).sort(($a, $b) => $b.lastModified - $a.lastModified).map((_, idx) => {
         return (<Col key={_.id}>
           <Card className="cardGirl">
@@ -68,15 +69,10 @@ const TableGirlsComponent = () => {
                 </div>
               </div>
             </Card.Header>
-            <Card.Img
-              className='images'
-              variant="top"
-              src={_.principalPhoto}
+            <ImageComponent
+              photo={_.principalPhoto}
+              id={_.id}
             />
-            <Link to={'/' + _.id} className='buttonShow'>
-              <div className="d-grid gap-2"><Button variant="danger"  type="button">Ver</Button>
-              </div>
-            </Link>
           </Card>
         </Col>)}
       )}

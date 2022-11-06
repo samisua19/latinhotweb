@@ -64,7 +64,7 @@ const ShowPhotosByGirl = () => {
           </div>
         </div>
       </div>
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', overflowX: 'scroll', marginBottom: '10px'}}>
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', overflowX: 'auto', marginBottom: '10px', width: '100%', overflowY: 'hidden'}}>
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
           {Object.values(photosUrl).sort(($a, $b) => $b.createdAt - $a.createdAt).map((_, idx) => (
             <div key={idx}>

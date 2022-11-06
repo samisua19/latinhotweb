@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ModalComponent from "./modalComponent";
 import whatsapp from "../whatsapp.png";
 import sensualLogo from "../sensualLogo.png"
+import Latinwebhot from "../Latinwebhot.png"
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
@@ -16,11 +17,10 @@ export default (props) => {
     <>
       <Navbar className="navbar">
         <Container>
-          <Image src={process.env.PUBLIC_URL + sensualLogo} height={50} roundedCircle={true}></Image>
-          <Title title={"Latin hot web"}></Title>
+          <Image src={process.env.PUBLIC_URL + Latinwebhot} height={300} roundedCircle={true}></Image>
           <div>
               <Image src={process.env.PUBLIC_URL + whatsapp} height={20} style={{marginRight:'5px'}}></Image>
-              <a href="https://walink.co/5a9621" style={{textDecoration: 'none'}}>(408) 639-1277</a>
+              <a href="https://walink.co/5a9621" style={{textDecoration: 'none', color: 'white'}}>(408) 639-1277</a>
           </div>
           <div hidden={!props.hideModal}>
             <ModalComponent />

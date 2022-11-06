@@ -157,9 +157,12 @@
 }
 
 .navbar{
+  background-image: url('./navbarlogo.png');
   background-color: #282c34;
   margin: 0px;
   flex: 1;
+  height: 120px;
+  background-size: contain;
 }
 
 .App {

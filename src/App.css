@@ -206,23 +206,29 @@
     transform: rotate(360deg);
   }
 }
-@media all and (min-width: 992px) and (max-width: 1200px)   {
+@media all and (min-width: 992px)  {
   .imageCardMod{
-    height: 290px !important;
-    width: 290px !important;
+    height: 260px !important;
+    width: 265px !important;
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 992px)   {
   .imageCardMod{
-    height: 214px !important;
-    width: 214px !important;
+    height: 180px !important;
+    width: 180px !important;
   }
 }
 
 @media all and (min-width: 923px)   {
   .imageshow{
     width: 50% !important;
+  }
+}
+
+@media all and (max-width: 992px)   {
+  .imageCardMod{
+    width: 100% !important;
   }
 }
 

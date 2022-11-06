@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 const ImageComponent = (props) => {
   return (
     <div style={{ }}>
-      <img src={props.photo} style={{ height: "300px", width:"316px", borderRadius: "10px" }}>
-        
-      </img>
+      <div style={{display:'flex', flexDirection: 'row', justifyContent: 'center'}}>
+        <img src={props.photo} className="imageCardMod" style={{ borderRadius: "10px" }}>        
+        </img>
+      </div>
       <div
         style={{
           zIndex: "3",

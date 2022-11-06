@@ -75,8 +75,8 @@ const ShowPhotosByGirl = () => {
           ))}
         </div>
       </div>
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-        <Image src={showPhoto ? showPhoto : ""} rounded={true} height={600}></Image>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', scrollX: 'auto'}}>
+        <Image src={showPhoto ? showPhoto : ""} rounded={true} style={{width: '100%'}}></Image>
       </div>
     </Container>
   );

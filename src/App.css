@@ -114,6 +114,10 @@
   filter: brightness(50%);
 }
 
+.cardGirl2:not(:hover)::before{
+  filter: brightness(50%);
+}
+
 .divCardForm{
   display: flex !important;
   flex-direction: row !important;
@@ -146,9 +150,10 @@
 .content-wrap {    
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #282c34;
   flex: 1;
+  padding-top: 20px;
 }
 
 .navbar{

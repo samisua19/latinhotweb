@@ -28,7 +28,7 @@ const ShowPhotosByGirl = () => {
         arrUrlsPhotos.push({url, createdAt: photo.createdAt});
       }
       setPhotosUrl(arrUrlsPhotos)
-      if( arrUrlsPhotos && arrUrlsPhotos[0] && arrUrlsPhotos[0].url ) setShowPhoto(photosUrl[0].url)
+      if( arrUrlsPhotos && arrUrlsPhotos.length && arrUrlsPhotos.length != 0 && arrUrlsPhotos[0]  && arrUrlsPhotos[0].url ) setShowPhoto(arrUrlsPhotos[0].url)
     };
 
     getGirl();
